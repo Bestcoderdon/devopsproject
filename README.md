@@ -4,5 +4,5 @@ Final project badges
 
 [![Releases](https://img.shields.io/github/release/Bestcoderdon/devopsproject/all.svg?style=flat-square)](https://github.com/Bestcoderdon/devopsproject/releases)
 
-# DevOps Final
-![GitHub Workflow Status (develop)](https://img.shields.io/github/actions/workflow/status/Bestcoderdon/devopsproject/ A workflow for my Hello World App?branch=develop&style=flat-square)
+# Develop build status
+![GitHub Workflow Status (develop)](https://img.shields.io/github/actions/workflow/status/Bestcoderdon/devopsproject/main.yml?branch=develop&style=flat-square)
