@@ -4,5 +4,5 @@ Final project badges
 
 [![Releases](https://img.shields.io/github/release/Bestcoderdon/devopsproject/all.svg?style=flat-square)](https://github.com/Bestcoderdon/devopsproject/releases)
 
-# Develop build status.
+# Develop Build status.
 ![GitHub Workflow Status (develop)](https://img.shields.io/github/actions/workflow/status/Bestcoderdon/devopsproject/main.yml?branch=develop&style=flat-square)
