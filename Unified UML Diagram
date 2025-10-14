@@ -1,7 +1,7 @@
 # 🧩 Use Cases – Unified UML Diagram
 
 ## 🎯 Overview
-This document defines the unified UML use case structure for the **Population Reporting System** within the company’s data management platform.
+This document defines the unified UML use case structure for the **Population Reporting System**
 
 ---
 
@@ -80,8 +80,4 @@ All use cases require:
 ## 📘 Version Control Notes
 | Version | Author | Description | Date |
 |----------|---------|-------------|------|
-| 1.0 | Initial Draft | Unified UML Use Case Model | YYYY-MM-DD |
-
----
-
-> **Tip:** Use this document as the base for generating the UML diagram (`.png` or `.svg`) using tools such as **PlantUML**, **Mermaid**, or **Visual Paradigm**.
+| 1.0 | Initial Draft | Unified UML Use Case Model | 2025-10-15 |
