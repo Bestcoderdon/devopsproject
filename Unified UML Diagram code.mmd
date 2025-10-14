@@ -1,70 +1,69 @@
-Code:
-graph TD
-    A[Clerical Staff] --> B[Population Reporting System]
-    
-    B --> C[Country Reports]
-    B --> D[City Reports]
-    
-    C --> C1[UC1: All Countries Worldwide<br/>by Population]
-    C --> C2[UC2: All Countries in Continent<br/>by Population]
-    C --> C3[UC3: All Countries in Region<br/>by Population]
-    C --> C4[UC4: Top N Countries Worldwide<br/>by Population]
-    C --> C5[UC5: Top N Countries in Continent<br/>by Population]
-    C --> C6[UC6: Top N Countries in Region<br/>by Population]
-    
-    D --> D1[UC7: All Cities Worldwide<br/>by Population]
-    D --> D2[UC8: All Cities in Continent<br/>by Population]
-    D --> D3[UC9: All Cities in Region<br/>by Population]
-    D --> D4[UC10: All Cities in Country<br/>by Population]
-    
-    %% Extensions/Error Handling
-    E[Data Access Error] -.->|extends| C2
-    E -.->|extends| C3
-    E -.->|extends| C4
-    E -.->|extends| C5
-    E -.->|extends| C6
-    E -.->|extends| D1
-    E -.->|extends| D2
-    E -.->|extends| D3
-    E -.->|extends| D4
-    
-    F[Invalid Input Error] -.->|extends| C4
-    F -.->|extends| C5
-    F -.->|extends| C6
-    
-    %% Include relationships for common functionality
-    G[Data Retrieval<br/>and Sorting] .->|include| C1
-    G .->|include| C2
-    G .->|include| C3
-    G .->|include| C4
-    G .->|include| C5
-    G .->|include| C6
-    G .->|include| D1
-    G .->|include| D2
-    G .->|include| D3
-    G .->|include| D4
-    
-    H[Report Generation<br/>and Formatting] .->|include| C1
-    H .->|include| C2
-    H .->|include| C3
-    H .->|include| C4
-    H .->|include| C5
-    H .->|include| C6
-    H .->|include| D1
-    H .->|include| D2
-    H .->|include| D3
-    H .->|include| D4
+flowchart TD
+  A[Clerical Staff] --> B[Population Reporting System]
 
-    %% Styling
-    classDef actor fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    classDef system fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    classDef useCase fill:#e8f5e8,stroke:#1b5e20,stroke-width:1px
-    classDef extension fill:#fff3e0,stroke:#e65100,stroke-width:1px
-    classDef include fill:#fce4ec,stroke:#880e4f,stroke-width:1px
-    
-    class A actor
-    class B system
-    class C,D useCase
-    class C1,C2,C3,C4,C5,C6,D1,D2,D3,D4 useCase
-    class E,F extension
-    class G,H include
+  B --> C[Country Reports]
+  B --> D[City Reports]
+
+  C --> C1[UC1: All Countries Worldwide<br/>by Population]
+  C --> C2[UC2: All Countries in Continent<br/>by Population]
+  C --> C3[UC3: All Countries in Region<br/>by Population]
+  C --> C4[UC4: Top N Countries Worldwide<br/>by Population]
+  C --> C5[UC5: Top N Countries in Continent<br/>by Population]
+  C --> C6[UC6: Top N Countries in Region<br/>by Population]
+
+  D --> D1[UC7: All Cities Worldwide<br/>by Population]
+  D --> D2[UC8: All Cities in Continent<br/>by Population]
+  D --> D3[UC9: All Cities in Region<br/>by Population]
+  D --> D4[UC10: All Cities in Country<br/>by Population]
+
+  %% Extension points (dotted lines)
+  E[Data Access Error] -.->|extends| C2
+  E -.->|extends| C3
+  E -.->|extends| C4
+  E -.->|extends| C5
+  E -.->|extends| C6
+  E -.->|extends| D1
+  E -.->|extends| D2
+  E -.->|extends| D3
+  E -.->|extends| D4
+
+  F[Invalid Input Error] -.->|extends| C4
+  F -.->|extends| C5
+  F -.->|extends| C6
+
+  %% Includes (dotted lines)
+  G[Data Retrieval<br/>and Sorting] -.->|include| C1
+  G -.->|include| C2
+  G -.->|include| C3
+  G -.->|include| C4
+  G -.->|include| C5
+  G -.->|include| C6
+  G -.->|include| D1
+  G -.->|include| D2
+  G -.->|include| D3
+  G -.->|include| D4
+
+  H[Report Generation<br/>and Formatting] -.->|include| C1
+  H -.->|include| C2
+  H -.->|include| C3
+  H -.->|include| C4
+  H -.->|include| C5
+  H -.->|include| C6
+  H -.->|include| D1
+  H -.->|include| D2
+  H -.->|include| D3
+  H -.->|include| D4
+
+  %% Styling
+  classDef actor fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+  classDef system fill:#f3e5f5,stroke:#4a148c,stroke-width:2px;
+  classDef useCase fill:#e8f5e8,stroke:#1b5e20,stroke-width:1px;
+  classDef extension fill:#fff3e0,stroke:#e65100,stroke-width:1px;
+  classDef include fill:#fce4ec,stroke:#880e4f,stroke-width:1px;
+
+  class A actor;
+  class B system;
+  class C,D useCase;
+  class C1,C2,C3,C4,C5,C6,D1,D2,D3,D4 useCase;
+  class E,F extension;
+  class G,H include;
