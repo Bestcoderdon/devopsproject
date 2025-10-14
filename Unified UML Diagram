@@ -1,0 +1,37 @@
+Key UML Components Explained:
+Actors:
+•	Primary Actor: Clerical Staff (responsible for all report generation)
+Use Cases Grouped by Category:
+Country Reports (C1-C6):
+•	UC1: All countries worldwide (largest → smallest population)
+•	UC2: All countries in continent (largest → smallest population)
+•	UC3: All countries in region (largest → smallest population)
+•	UC4: Top N countries worldwide (user provides N)
+•	UC5: Top N countries in continent (user provides N)
+•	UC6: Top N countries in region (user provides N)
+City Reports (D1-D4):
+•	UC7: All cities worldwide (largest → smallest population)
+•	UC8: All cities in continent (largest → smallest population)
+•	UC9: All cities in region (largest → smallest population)
+•	UC10: All cities in country (largest → smallest population)
+
+Relationships:
+Extension Points (Error Handling):
+•	Data Access Error: Affects UC2, UC3, UC4, UC5, UC6, UC7, UC8, UC9, UC10
+•	Invalid Input Error: Affects UC4, UC5, UC6 (where user provides N)
+Include Relationships (Common Functionality):
+•	Data Retrieval and Sorting: Required by all use cases
+•	Report Generation and Formatting: Required by all use cases
+System Boundary:
+•	Population Reporting System: Contains all use cases within the data management platform
+Preconditions (Applied to All):
+•	User authentication and authorization
+•	Access to current, validated population data
+•	Proper system functionality
+Success Conditions:
+•	Reports generated with correct sorting (largest → smallest population)
+•	Data presented in usable format for organizational needs
+Failed Conditions:
+•	Data retrieval errors
+•	Invalid user inputs
+•	System access issues
