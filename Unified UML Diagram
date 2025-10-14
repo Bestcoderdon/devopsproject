@@ -1,37 +1,87 @@
-Key UML Components Explained:
-Actors:
-•	Primary Actor: Clerical Staff (responsible for all report generation)
-Use Cases Grouped by Category:
-Country Reports (C1-C6):
-•	UC1: All countries worldwide (largest → smallest population)
-•	UC2: All countries in continent (largest → smallest population)
-•	UC3: All countries in region (largest → smallest population)
-•	UC4: Top N countries worldwide (user provides N)
-•	UC5: Top N countries in continent (user provides N)
-•	UC6: Top N countries in region (user provides N)
-City Reports (D1-D4):
-•	UC7: All cities worldwide (largest → smallest population)
-•	UC8: All cities in continent (largest → smallest population)
-•	UC9: All cities in region (largest → smallest population)
-•	UC10: All cities in country (largest → smallest population)
+# 🧩 Use Cases – Unified UML Diagram
 
-Relationships:
-Extension Points (Error Handling):
-•	Data Access Error: Affects UC2, UC3, UC4, UC5, UC6, UC7, UC8, UC9, UC10
-•	Invalid Input Error: Affects UC4, UC5, UC6 (where user provides N)
-Include Relationships (Common Functionality):
-•	Data Retrieval and Sorting: Required by all use cases
-•	Report Generation and Formatting: Required by all use cases
-System Boundary:
-•	Population Reporting System: Contains all use cases within the data management platform
-Preconditions (Applied to All):
-•	User authentication and authorization
-•	Access to current, validated population data
-•	Proper system functionality
-Success Conditions:
-•	Reports generated with correct sorting (largest → smallest population)
-•	Data presented in usable format for organizational needs
-Failed Conditions:
-•	Data retrieval errors
-•	Invalid user inputs
-•	System access issues
+## 🎯 Overview
+This document defines the unified UML use case structure for the **Population Reporting System** within the company’s data management platform.
+
+---
+
+## 👤 Primary Actor
+**Clerical Staff**  
+Responsible for all report generation activities.
+
+---
+
+## 🗂 Use Cases by Category
+
+### 🌍 Country Reports (C1–C6)
+| ID | Use Case Description |
+|----|-----------------------|
+| **UC1** | Generate report for **all countries worldwide** (sorted largest → smallest population) |
+| **UC2** | Generate report for **all countries in a continent** (sorted largest → smallest population) |
+| **UC3** | Generate report for **all countries in a region** (sorted largest → smallest population) |
+| **UC4** | Generate report for **Top N countries worldwide** (user provides N) |
+| **UC5** | Generate report for **Top N countries in a continent** (user provides N) |
+| **UC6** | Generate report for **Top N countries in a region** (user provides N) |
+
+---
+
+### 🏙 City Reports (D1–D4)
+| ID | Use Case Description |
+|----|-----------------------|
+| **UC7** | Generate report for **all cities worldwide** (sorted largest → smallest population) |
+| **UC8** | Generate report for **all cities in a continent** (sorted largest → smallest population) |
+| **UC9** | Generate report for **all cities in a region** (sorted largest → smallest population) |
+| **UC10** | Generate report for **all cities in a country** (sorted largest → smallest population) |
+
+---
+
+## 🔁 Relationships
+
+### 🔹 Include Relationships (Common Functionality)
+All use cases **include**:
+- **Data Retrieval and Sorting**
+- **Report Generation and Formatting**
+
+### ⚠️ Extension Points (Error Handling)
+| Error Type | Affected Use Cases |
+|-------------|--------------------|
+| **Data Access Error** | UC2, UC3, UC4, UC5, UC6, UC7, UC8, UC9, UC10 |
+| **Invalid Input Error** | UC4, UC5, UC6 (where user provides N) |
+
+---
+
+## 🧱 System Boundary
+**Population Reporting System**  
+Contains all use cases within the **data management platform**.
+
+---
+
+## ✅ Preconditions
+All use cases require:
+- User **authentication and authorization**
+- Access to **current, validated population data**
+- Proper **system functionality**
+
+---
+
+## 🎯 Success Conditions
+- Reports generated with **correct sorting** (largest → smallest)
+- Data presented in **usable, structured format** for organizational needs
+
+---
+
+## ❌ Failed Conditions
+- Data retrieval errors  
+- Invalid user inputs  
+- System access or functionality issues
+
+---
+
+## 📘 Version Control Notes
+| Version | Author | Description | Date |
+|----------|---------|-------------|------|
+| 1.0 | Initial Draft | Unified UML Use Case Model | YYYY-MM-DD |
+
+---
+
+> **Tip:** Use this document as the base for generating the UML diagram (`.png` or `.svg`) using tools such as **PlantUML**, **Mermaid**, or **Visual Paradigm**.
