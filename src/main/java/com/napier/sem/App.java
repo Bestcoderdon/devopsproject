@@ -50,6 +50,11 @@ public class App
         a.getPopulationOfCountry();
         a.getPopulationOfDistrict();
         a.getPopulationOfCity();
+        a.getChineseSpeakersByCountry();
+        a.getEnglishSpeakersByCountry();
+        a.getHindiSpeakersByCountry();
+        a.getSpanishSpeakersByCountry();
+        a.getArabicSpeakersByCountry();
 
         // Disconnect from database
         a.disconnect();
@@ -1540,6 +1545,202 @@ System.out.println("Report1: All countries in the world, largest population to s
         {
             System.out.println(e.getMessage());
             System.out.println("Failed to get population of city");
+        }
+    }
+
+    /**
+     * Report32: Number of people who speak Chinese in each country, ordered from greatest to smallest,
+     * including percentage of the world population.
+     */
+    public void getChineseSpeakersByCountry() {
+        try {
+            Statement stmt = con.createStatement();
+
+            // SQL query: calculate number of Chinese speakers per country and world percentage
+            String strSelect = "SELECT c.Name AS CountryName, "
+                    + "cl.Percentage, "
+                    + "ROUND((cl.Percentage / 100) * c.Population) AS ChineseSpeakers, "
+                    + "ROUND(((cl.Percentage / 100) * c.Population / "
+                    + "(SELECT SUM(Population) FROM country)) * 100, 4) AS WorldPercentage "
+                    + "FROM countrylanguage cl "
+                    + "JOIN country c ON cl.CountryCode = c.Code "
+                    + "WHERE cl.Language = 'Chinese' "
+                    + "ORDER BY ChineseSpeakers DESC";
+
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            System.out.println();
+            System.out.println("Report32: Number of people who speak Chinese by country (largest to smallest)");
+            System.out.println(String.format("%-40s %-15s %-20s %-20s", "Country", "Percentage", "Speakers", "World %"));
+
+            while (rset.next()) {
+                String countryName = rset.getString("CountryName");
+                double percentage = rset.getDouble("Percentage");
+                long speakers = rset.getLong("ChineseSpeakers");
+                double worldPercent = rset.getDouble("WorldPercentage");
+
+                System.out.println(String.format("%-40s %-15.1f %-20d %-20.4f",
+                        countryName, percentage, speakers, worldPercent));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get Chinese speakers");
+        }
+    }
+
+    /**
+     * Report33: Number of people who speak English in each country, ordered from greatest to smallest,
+     * including percentage of the world population.
+     */
+    public void getEnglishSpeakersByCountry() {
+        try {
+            Statement stmt = con.createStatement();
+
+            String strSelect = "SELECT c.Name AS CountryName, "
+                    + "cl.Percentage, "
+                    + "ROUND((cl.Percentage / 100) * c.Population) AS EnglishSpeakers, "
+                    + "ROUND(((cl.Percentage / 100) * c.Population / "
+                    + "(SELECT SUM(Population) FROM country)) * 100, 4) AS WorldPercentage "
+                    + "FROM countrylanguage cl "
+                    + "JOIN country c ON cl.CountryCode = c.Code "
+                    + "WHERE cl.Language = 'English' "
+                    + "ORDER BY EnglishSpeakers DESC";
+
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            System.out.println();
+            System.out.println("Report33: Number of people who speak English by country (largest to smallest)");
+            System.out.println(String.format("%-40s %-15s %-20s %-20s", "Country", "Percentage", "Speakers", "World %"));
+
+            while (rset.next()) {
+                String countryName = rset.getString("CountryName");
+                double percentage = rset.getDouble("Percentage");
+                long speakers = rset.getLong("EnglishSpeakers");
+                double worldPercent = rset.getDouble("WorldPercentage");
+
+                System.out.println(String.format("%-40s %-15.1f %-20d %-20.4f",
+                        countryName, percentage, speakers, worldPercent));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get English speakers");
+        }
+    }
+
+    /**
+     * Report34: Number of people who speak Hindi in each country, ordered from greatest to smallest,
+     * including percentage of the world population.
+     */
+    public void getHindiSpeakersByCountry() {
+        try {
+            Statement stmt = con.createStatement();
+
+            String strSelect = "SELECT c.Name AS CountryName, "
+                    + "cl.Percentage, "
+                    + "ROUND((cl.Percentage / 100) * c.Population) AS HindiSpeakers, "
+                    + "ROUND(((cl.Percentage / 100) * c.Population / "
+                    + "(SELECT SUM(Population) FROM country)) * 100, 4) AS WorldPercentage "
+                    + "FROM countrylanguage cl "
+                    + "JOIN country c ON cl.CountryCode = c.Code "
+                    + "WHERE cl.Language = 'Hindi' "
+                    + "ORDER BY HindiSpeakers DESC";
+
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            System.out.println();
+            System.out.println("Report34: Number of people who speak Hindi by country (largest to smallest)");
+            System.out.println(String.format("%-40s %-15s %-20s %-20s", "Country", "Percentage", "Speakers", "World %"));
+
+            while (rset.next()) {
+                String countryName = rset.getString("CountryName");
+                double percentage = rset.getDouble("Percentage");
+                long speakers = rset.getLong("HindiSpeakers");
+                double worldPercent = rset.getDouble("WorldPercentage");
+
+                System.out.println(String.format("%-40s %-15.1f %-20d %-20.4f",
+                        countryName, percentage, speakers, worldPercent));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get Hindi speakers");
+        }
+    }
+
+    /**
+     * Report35: Number of people who speak Spanish in each country, ordered from greatest to smallest,
+     * including percentage of the world population.
+     */
+    public void getSpanishSpeakersByCountry() {
+        try {
+            Statement stmt = con.createStatement();
+
+            String strSelect = "SELECT c.Name AS CountryName, "
+                    + "cl.Percentage, "
+                    + "ROUND((cl.Percentage / 100) * c.Population) AS SpanishSpeakers, "
+                    + "ROUND(((cl.Percentage / 100) * c.Population / "
+                    + "(SELECT SUM(Population) FROM country)) * 100, 4) AS WorldPercentage "
+                    + "FROM countrylanguage cl "
+                    + "JOIN country c ON cl.CountryCode = c.Code "
+                    + "WHERE cl.Language = 'Spanish' "
+                    + "ORDER BY SpanishSpeakers DESC";
+
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            System.out.println();
+            System.out.println("Report35: Number of people who speak Spanish by country (largest to smallest)");
+            System.out.println(String.format("%-40s %-15s %-20s %-20s", "Country", "Percentage", "Speakers", "World %"));
+
+            while (rset.next()) {
+                String countryName = rset.getString("CountryName");
+                double percentage = rset.getDouble("Percentage");
+                long speakers = rset.getLong("SpanishSpeakers");
+                double worldPercent = rset.getDouble("WorldPercentage");
+
+                System.out.println(String.format("%-40s %-15.1f %-20d %-20.4f",
+                        countryName, percentage, speakers, worldPercent));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get Spanish speakers");
+        }
+    }
+
+    /**
+     * Report36: Number of people who speak Arabic in each country, ordered from greatest to smallest,
+     * including percentage of the world population.
+     */
+    public void getArabicSpeakersByCountry() {
+        try {
+            Statement stmt = con.createStatement();
+
+            String strSelect = "SELECT c.Name AS CountryName, "
+                    + "cl.Percentage, "
+                    + "ROUND((cl.Percentage / 100) * c.Population) AS ArabicSpeakers, "
+                    + "ROUND(((cl.Percentage / 100) * c.Population / "
+                    + "(SELECT SUM(Population) FROM country)) * 100, 4) AS WorldPercentage "
+                    + "FROM countrylanguage cl "
+                    + "JOIN country c ON cl.CountryCode = c.Code "
+                    + "WHERE cl.Language = 'Arabic' "
+                    + "ORDER BY ArabicSpeakers DESC";
+
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            System.out.println();
+            System.out.println("Report36: Number of people who speak Arabic by country (largest to smallest)");
+            System.out.println(String.format("%-40s %-15s %-20s %-20s", "Country", "Percentage", "Speakers", "World %"));
+
+            while (rset.next()) {
+                String countryName = rset.getString("CountryName");
+                double percentage = rset.getDouble("Percentage");
+                long speakers = rset.getLong("ArabicSpeakers");
+                double worldPercent = rset.getDouble("WorldPercentage");
+
+                System.out.println(String.format("%-40s %-15.1f %-20d %-20.4f",
+                        countryName, percentage, speakers, worldPercent));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get Arabic speakers");
         }
     }
 
