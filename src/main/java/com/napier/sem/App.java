@@ -142,7 +142,10 @@ public class App
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-System.out.println("Report1: All countries in the world, largest population to smallest");
+
+            System.out.println();
+            System.out.println("Report1: All countries in the world, largest population to smallest");
+
             // Print header
             System.out.println(String.format("%-5s %-40s %-20s %-20s %-15s %-10s",
                     "Code", "Name", "Continent", "Region", "Population", "Capital"));
@@ -187,8 +190,10 @@ System.out.println("Report1: All countries in the world, largest population to s
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
+
             System.out.println();
             System.out.println("Report2: All countries in the continent Asia, largest population to smallest");
+
             // Print header
             System.out.println(String.format("%-5s %-40s %-20s %-20s %-15s %-10s",
                     "Code", "Name", "Continent", "Region", "Population", "Capital"));
@@ -233,8 +238,10 @@ System.out.println("Report1: All countries in the world, largest population to s
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
+
             System.out.println();
             System.out.println("Report3: All countries in the region Middle East, largest population to smallest");
+
             // Print header
             System.out.println(String.format("%-5s %-40s %-20s %-20s %-15s %-10s",
                     "Code", "Name", "Continent", "Region", "Population", "Capital"));
@@ -279,8 +286,10 @@ System.out.println("Report1: All countries in the world, largest population to s
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
+
             System.out.println();
             System.out.println("Report4: Top 5 world countries, largest population to smallest");
+
             // Print header
             System.out.println(String.format("%-5s %-40s %-20s %-20s %-15s %-10s",
                     "Code", "Name", "Continent", "Region", "Population", "Capital"));
@@ -326,8 +335,10 @@ System.out.println("Report1: All countries in the world, largest population to s
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
+
             System.out.println();
             System.out.println("Report5: Top 5 countries in the continent Asia, largest population to smallest");
+
             // Print header
             System.out.println(String.format("%-5s %-40s %-20s %-20s %-15s %-10s",
                     "Code", "Name", "Continent", "Region", "Population", "Capital"));
@@ -373,8 +384,10 @@ System.out.println("Report1: All countries in the world, largest population to s
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
+
             System.out.println();
             System.out.println("Report6: Top 5 countries in the region Middle East, largest population to smallest");
+
             // Print header
             System.out.println(String.format("%-5s %-40s %-20s %-20s %-15s %-10s",
                     "Code", "Name", "Continent", "Region", "Population", "Capital"));
@@ -420,6 +433,7 @@ System.out.println("Report1: All countries in the world, largest population to s
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
+
             System.out.println();
             System.out.println("Report7: All cities in the world, largest population to smallest");
 
