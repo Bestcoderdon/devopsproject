@@ -4,7 +4,7 @@ title: "[Bug]: "
 labels: ["bug", "triage"]
 assignees:
   - Bestcoderdon
-type: bug
+
 body:
   - type: markdown
     attributes:
