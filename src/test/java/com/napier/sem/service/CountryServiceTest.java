@@ -1,6 +1,5 @@
 package com.napier.sem.service;
 
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -11,11 +10,20 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-
-
+/**
+ * CountryServiceTest — uses Mockito for repository mocking and JUnit 5 for assertions.
+ *
+ * If you have real Country/CountryRepository/CountryService classes under src/main/java,
+ * remove the test stubs at the bottom of this file. Otherwise the stubs allow the test
+ * class to compile in an empty project.
+ */
 class CountryServiceTest {
 
     @Mock
@@ -31,17 +39,14 @@ class CountryServiceTest {
 
     @Test
     void testTopNCountriesReturnsSortedList() {
-       
         when(countryRepository.findAll()).thenReturn(List.of(
                 new Country("AAA", "CountryA", "Asia", "RegionA", 1000L, 1),
                 new Country("BBB", "CountryB", "Asia", "RegionA", 5000L, 2),
                 new Country("CCC", "CountryC", "Asia", "RegionA", 2000L, 3)
         ));
 
-     
         List<Country> top2 = countryService.getTopNCountries(2);
 
-      
         assertNotNull(top2, "Result should not be null");
         assertEquals(2, top2.size(), "Expected two countries in top list");
         assertEquals("CountryB", top2.get(0).getName(), "Expected largest population first");
@@ -83,6 +88,9 @@ class CountryServiceTest {
     }
 }
 
+/* -----------------------------
+   Test stubs (remove if you have real classes)
+   ----------------------------- */
 
 class Country {
     private final String code;
@@ -112,7 +120,6 @@ class Country {
 interface CountryRepository {
     List<Country> findAll();
 }
-
 
 class CountryService {
     private final CountryRepository repository;
