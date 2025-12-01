@@ -17,7 +17,6 @@ import static org.mockito.Mockito.*;
 
 
 class CountryServiceTest {
-
     @Mock
     private CountryRepository countryRepository;
 
