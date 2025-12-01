@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.napier.sem</groupId>
@@ -16,14 +17,14 @@
     </properties>
 
     <dependencies>
-        <!-- existing DB driver -->
+        <!-- Database driver -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version>
         </dependency>
 
-        <!-- Testing -->
+        <!-- Testing dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -44,25 +45,23 @@
             <version>5.4.0</version>
             <scope>test</scope>
         </dependency>
-
-        <!-- Optional: if project uses AssertJ or Hamcrest, add them later -->
     </dependencies>
 
     <build>
         <plugins>
-            <!-- keep your existing jar/assembly plugins -->
+            <!-- Jar plugin -->
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.4.2</version>
                 <executions>
                     <execution>
                         <id>default-jar</id>
-                        <!--  skip building the default-jar -->
                         <phase>none</phase>
                     </execution>
                 </executions>
             </plugin>
 
+            <!-- Assembly plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
@@ -103,18 +102,21 @@
                 </configuration>
             </plugin>
 
-            <!-- JaCoCo code coverage -->
+            <!-- JaCoCo plugin for code coverage -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.9.0</version>
+                <version>0.8.10</version>
                 <executions>
+                    <!-- Prepare agent before tests -->
                     <execution>
                         <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
+
+                    <!-- Generate coverage report -->
                     <execution>
                         <id>report</id>
                         <phase>test</phase>
@@ -122,7 +124,8 @@
                             <goal>report</goal>
                         </goals>
                     </execution>
-                    <!-- optional check - baseline 60% (adjust later) -->
+
+                    <!-- Optional coverage check -->
                     <execution>
                         <id>check</id>
                         <goals>
